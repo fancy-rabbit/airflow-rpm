@@ -33,7 +33,7 @@ Airflow is a platform to programmatically author, schedule and monitor workflows
 %{__mkdir} -p %{buildroot}/run/airflow/
 %{__mkdir} -p %{buildroot}/etc/logrotate.d/
 
-pip install --target %{buildroot}/usr/share/airflow/lib airflow[%{PACKAGES}]==%{VERSION}
+AIRFLOW_GPL_UNIDECODE=1 pip install -i https://pypi.douban.com/simple/ --target %{buildroot}/usr/share/airflow/lib apache-airflow[%{PACKAGES}]==%{VERSION}
 %{__cp} -rp %{_topdir}/systemd/airflow %{buildroot}/etc/sysconfig/
 %{__cp} -rp %{_topdir}/systemd/airflow.conf %{buildroot}/etc/tmpfiles.d/
 %{__cp} -rp %{_topdir}/systemd/*.service %{buildroot}/usr/lib/systemd/system/
@@ -83,6 +83,10 @@ fi
 /usr/lib/systemd/system/*
 /usr/bin/*
 /etc/logrotate.d/*
+
+%config(noreplace) /etc/sysconfig/airflow
+%config(noreplace) /etc/logrotate.d/airflow_*
+
 
 %changelog
 
