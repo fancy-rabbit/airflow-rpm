@@ -9,7 +9,7 @@ License:        ASL 2.0
 URL:            https://airflow.incubator.apache.org/
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires:	python-devel
-BuildRequires: 	mariadb-devel
+BuildRequires: 	mysql-devel
 BuildRequires:  libffi-devel 
 BuildRequires:  cyrus-sasl-devel
 BuildRequires:	gcc-c++
