@@ -1,4 +1,4 @@
 #!/bin/bash
 
 export PYTHONPATH=/usr/share/airflow/lib
-python2 /usr/share/airflow/bin/gunicorn $@
+exec python2 /usr/share/airflow/bin/gunicorn $@
